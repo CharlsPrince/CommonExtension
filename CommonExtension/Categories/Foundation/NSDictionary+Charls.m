@@ -16,11 +16,11 @@
  *
  *  @return nil
  */
-#define ErrorLog(msg, error) if (error != nil) { \
-if (DEBUG) { \
-NSLog((@"%s [Line %d] " msg @" {Error: %@}"), __PRETTY_FUNCTION__, __LINE__, [error localizedDescription]); \
-}; \
-}
+// #define ErrorLog(msg, error) if (error != nil) { \
+// if (DEBUG) { \
+// NSLog((@"%s [Line %d] " msg @" {Error: %@}"), __PRETTY_FUNCTION__, __LINE__, [error localizedDescription]); \
+// }; \
+// }
 
 #pragma mark - NSDictionary
 @implementation NSDictionary (Charls)
@@ -34,7 +34,7 @@ NSLog((@"%s [Line %d] " msg @" {Error: %@}"), __PRETTY_FUNCTION__, __LINE__, [er
     if (plistData == nil || plistData.length == 0) return nil;
     NSError *error;
     NSDictionary *dictionary = [NSPropertyListSerialization propertyListWithData:plistData options:NSPropertyListImmutable format:nil error:&error];
-    ErrorLog(@"plist转NSDictionary失败", error)
+//     ErrorLog(@"plist转NSDictionary失败", error)
     return ([dictionary isKindOfClass:[NSDictionary class]]) ? dictionary : nil;
 }
 
@@ -49,7 +49,7 @@ NSLog((@"%s [Line %d] " msg @" {Error: %@}"), __PRETTY_FUNCTION__, __LINE__, [er
 - (nullable NSData *)plistData {
     NSError *error;
     NSData *data = [NSPropertyListSerialization dataWithPropertyList:self format:NSPropertyListBinaryFormat_v1_0 options:kNilOptions error:&error];
-    ErrorLog(@"字典转 plist data 失败", error)
+//     ErrorLog(@"字典转 plist data 失败", error)
     return data;
 }
 
@@ -57,7 +57,7 @@ NSLog((@"%s [Line %d] " msg @" {Error: %@}"), __PRETTY_FUNCTION__, __LINE__, [er
 - (nullable NSString *)plistString {
     NSError *error;
     NSData *xmlData = [NSPropertyListSerialization dataWithPropertyList:self format:NSPropertyListXMLFormat_v1_0 options:kNilOptions error:&error];
-    ErrorLog(@"字典转 plist string 失败", error)
+//     ErrorLog(@"字典转 plist string 失败", error)
     return ((xmlData != nil) ? [[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding] : nil);
 }
 
@@ -66,7 +66,7 @@ NSLog((@"%s [Line %d] " msg @" {Error: %@}"), __PRETTY_FUNCTION__, __LINE__, [er
     if ([NSJSONSerialization isValidJSONObject:self]) {
         NSError *error;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:&error];
-        ErrorLog(@"JSON字典转JSON字符串失败", error)
+//         ErrorLog(@"JSON字典转JSON字符串失败", error)
         NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         return json;
     }

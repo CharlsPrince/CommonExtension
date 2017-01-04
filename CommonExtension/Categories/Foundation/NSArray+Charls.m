@@ -8,20 +8,6 @@
 
 #import "NSArray+Charls.h"
 
-/**
- *  @brief 错误打印
- *
- *  @param msg   错误提示
- *  @param error 错误内容
- *
- *  @return nil
- */
-#define ErrorLog(msg, error) if (error != nil) { \
-    if (DEBUG) { \
-      NSLog((@"%s [Line %d] " msg @" {Error: %@}"), __PRETTY_FUNCTION__, __LINE__, [error localizedDescription]); \
-    }; \
-}
-
 #pragma mark - NSArray
 @implementation NSArray (Charls)
 @end
@@ -34,7 +20,7 @@
     if (plistData == nil || plistData.length == 0) return nil;
     NSError *error;
     NSArray *array = [NSPropertyListSerialization propertyListWithData:plistData options:NSPropertyListImmutable format:nil error:&error];
-    ErrorLog(@"plist数据转Array失败", error)
+//    ErrorLog(@"plist数据转Array失败", error)
     return ([array isKindOfClass:[NSArray class]]) ? array : nil;
 }
 
@@ -49,7 +35,7 @@
 - (nullable NSData *)plistData {
     NSError *error;
     NSData *data = [NSPropertyListSerialization dataWithPropertyList:self format:NSPropertyListBinaryFormat_v1_0 options:kNilOptions error:&error];
-    ErrorLog(@"Array转plist data失败", error)
+//    ErrorLog(@"Array转plist data失败", error)
     return data;
 }
 
@@ -57,7 +43,7 @@
 - (nullable NSString *)plistString {
     NSError *error;
     NSData *xmlData = [NSPropertyListSerialization dataWithPropertyList:self format:NSPropertyListXMLFormat_v1_0 options:kNilOptions error:&error];
-    ErrorLog(@"Array转plist string失败", error)
+//    ErrorLog(@"Array转plist string失败", error)
     return ((xmlData != nil) ? [[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding] : nil);
 }
 
@@ -66,7 +52,7 @@
     if ([NSJSONSerialization isValidJSONObject:self]) {
         NSError *error;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:&error];
-        ErrorLog(@"JSON Array转JSON String失败", error)
+//        ErrorLog(@"JSON Array转JSON String失败", error)
         NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         return json;
     }
@@ -75,9 +61,17 @@
 
 @end
 
+@implementation NSArray (Element)
 
+/// 返回随机元素
+- (id)randomObject {
+    if (self.count <= 0) {
+        return nil;
+    }
+    return self[arc4random() % self.count];
+}
 
-
+@end
 
 #pragma mark - 元素
 @implementation NSMutableArray (Element)
@@ -107,7 +101,7 @@
     if (self.count > 0) {
         if (index >= self.count || index < 0) {
             NSError *error = [NSError errorWithDomain:@"" code:0 userInfo:@{@"reason":@"The index value is not greater than or equal to the number of array"}];
-            ErrorLog(@"索引值不能大于或等于数组数量", error)
+//            ErrorLog(@"索引值不能大于或等于数组数量", error)
             return obj;
         } else {
             obj = [self objectAtIndex:index];
@@ -134,6 +128,12 @@
     }
 }
 
+/// 安全地添加元素
+- (void)safeAddObject:(id)object {
+    if (object != nil) {
+        [self addObject:object];
+    }
+}
 
 @end
 

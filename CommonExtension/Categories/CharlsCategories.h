@@ -9,7 +9,6 @@
 #ifndef CharlsCategories_h
 #define CharlsCategories_h
 
-
 //** Foundation 类的类别 */
 #import "NSArray+Charls.h"
 #import "NSDictionary+Charls.h"

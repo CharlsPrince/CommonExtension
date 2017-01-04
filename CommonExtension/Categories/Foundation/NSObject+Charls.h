@@ -63,8 +63,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (PropertyListing)
 
+
+/**
+ 获取对象所有属性
+
+ @return 对象属性数组
+ */
 - (NSArray *)getAllProperties;
 
+
+/**
+ 获取对象所有属性
+
+ @return 对象属性字典
+ */
 - (NSDictionary *)properties_aps;
 
 @end

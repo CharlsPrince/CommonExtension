@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - NSArray
@@ -57,7 +56,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface NSArray (Element)
 
+
+/**
+ 随机元素
+
+ @return id or nil
+ */
+- (nullable id)randomObject;
+
+@end
 
 
 #pragma mark - NSMutableArray
@@ -96,6 +105,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  @brief 打乱数组元素
  */
 - (void)shuffle;
+
+
+/**
+ 安全添加元素
+
+ @param object id
+ */
+- (void)safeAddObject:(_Nonnull id)object;
 
 @end
 

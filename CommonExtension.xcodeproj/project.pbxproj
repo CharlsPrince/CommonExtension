@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE064B1D1E1D2D9300651FB7 /* NSUserDefaults+Charls.m in Sources */ = {isa = PBXBuildFile; fileRef = FE064B1C1E1D2D9300651FB7 /* NSUserDefaults+Charls.m */; };
+		FE8531BA1E1C973E002344E4 /* UIColor+Charls.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8531B91E1C973E002344E4 /* UIColor+Charls.m */; };
 		FEB2B4F21D824988003008B2 /* NSTimer+Charls.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB2B4F11D824988003008B2 /* NSTimer+Charls.m */; };
 		FEB2B4F61D824E87003008B2 /* NSObject+Charls.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB2B4F51D824E87003008B2 /* NSObject+Charls.m */; };
 		FEB2B4F91D8253BE003008B2 /* NSDate+Charls.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB2B4F81D8253BE003008B2 /* NSDate+Charls.m */; };
@@ -19,6 +21,11 @@
 		FEBB29D51D7FEEEC00057595 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEBB29D31D7FEEEC00057595 /* Main.storyboard */; };
 		FEBB29D71D7FEEEC00057595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEBB29D61D7FEEEC00057595 /* Assets.xcassets */; };
 		FEBB29DA1D7FEEEC00057595 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEBB29D81D7FEEEC00057595 /* LaunchScreen.storyboard */; };
+		FED29F761DEF01FA006B5CDC /* UIImage+Charls.m in Sources */ = {isa = PBXBuildFile; fileRef = FED29F751DEF01FA006B5CDC /* UIImage+Charls.m */; };
+		FED29F7A1DEF061B006B5CDC /* NSNumber+Charls.m in Sources */ = {isa = PBXBuildFile; fileRef = FED29F791DEF061B006B5CDC /* NSNumber+Charls.m */; };
+		FED29F7D1DEF06B7006B5CDC /* NSString+Charls.m in Sources */ = {isa = PBXBuildFile; fileRef = FED29F7C1DEF06B7006B5CDC /* NSString+Charls.m */; };
+		FED29F801DEF0D7E006B5CDC /* UIButton+Charls.m in Sources */ = {isa = PBXBuildFile; fileRef = FED29F7F1DEF0D7E006B5CDC /* UIButton+Charls.m */; };
+		FED29F831DEF2B48006B5CDC /* VerifyUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FED29F821DEF2B48006B5CDC /* VerifyUtilities.m */; };
 		FEDEDD8F1DCCE86C00511D99 /* UIView+Charls.m in Sources */ = {isa = PBXBuildFile; fileRef = FEDEDD8E1DCCE86C00511D99 /* UIView+Charls.m */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE064B1B1E1D2D9300651FB7 /* NSUserDefaults+Charls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Charls.h"; sourceTree = "<group>"; };
+		FE064B1C1E1D2D9300651FB7 /* NSUserDefaults+Charls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Charls.m"; sourceTree = "<group>"; };
+		FE8531B81E1C973E002344E4 /* UIColor+Charls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Charls.h"; sourceTree = "<group>"; };
+		FE8531B91E1C973E002344E4 /* UIColor+Charls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Charls.m"; sourceTree = "<group>"; };
 		FEB2B4F01D824988003008B2 /* NSTimer+Charls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Charls.h"; sourceTree = "<group>"; };
 		FEB2B4F11D824988003008B2 /* NSTimer+Charls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Charls.m"; sourceTree = "<group>"; };
 		FEB2B4F41D824E87003008B2 /* NSObject+Charls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Charls.h"; sourceTree = "<group>"; };
@@ -57,6 +68,16 @@
 		FEBB29D91D7FEEEC00057595 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FEBB29DB1D7FEEEC00057595 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEBB29FF1D7FEF9B00057595 /* CommonExtension_Swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CommonExtension_Swift.xcodeproj; path = CommonExtension_Swift/CommonExtension_Swift/CommonExtension_Swift.xcodeproj; sourceTree = "<group>"; };
+		FED29F741DEF01FA006B5CDC /* UIImage+Charls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Charls.h"; sourceTree = "<group>"; };
+		FED29F751DEF01FA006B5CDC /* UIImage+Charls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Charls.m"; sourceTree = "<group>"; };
+		FED29F781DEF061B006B5CDC /* NSNumber+Charls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Charls.h"; sourceTree = "<group>"; };
+		FED29F791DEF061B006B5CDC /* NSNumber+Charls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Charls.m"; sourceTree = "<group>"; };
+		FED29F7B1DEF06B7006B5CDC /* NSString+Charls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Charls.h"; sourceTree = "<group>"; };
+		FED29F7C1DEF06B7006B5CDC /* NSString+Charls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Charls.m"; sourceTree = "<group>"; };
+		FED29F7E1DEF0D7E006B5CDC /* UIButton+Charls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Charls.h"; sourceTree = "<group>"; };
+		FED29F7F1DEF0D7E006B5CDC /* UIButton+Charls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Charls.m"; sourceTree = "<group>"; };
+		FED29F811DEF2B48006B5CDC /* VerifyUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyUtilities.h; sourceTree = "<group>"; };
+		FED29F821DEF2B48006B5CDC /* VerifyUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyUtilities.m; sourceTree = "<group>"; };
 		FEDEDD8D1DCCE86C00511D99 /* UIView+Charls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Charls.h"; sourceTree = "<group>"; };
 		FEDEDD8E1DCCE86C00511D99 /* UIView+Charls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Charls.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +118,12 @@
 				FEB2B4F81D8253BE003008B2 /* NSDate+Charls.m */,
 				FEB2B4FA1D828E7E003008B2 /* NSDateFormatter+Charls.h */,
 				FEB2B4FB1D828E7E003008B2 /* NSDateFormatter+Charls.m */,
+				FED29F781DEF061B006B5CDC /* NSNumber+Charls.h */,
+				FED29F791DEF061B006B5CDC /* NSNumber+Charls.m */,
+				FED29F7B1DEF06B7006B5CDC /* NSString+Charls.h */,
+				FED29F7C1DEF06B7006B5CDC /* NSString+Charls.m */,
+				FE064B1B1E1D2D9300651FB7 /* NSUserDefaults+Charls.h */,
+				FE064B1C1E1D2D9300651FB7 /* NSUserDefaults+Charls.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -106,6 +133,12 @@
 			children = (
 				FEDEDD8D1DCCE86C00511D99 /* UIView+Charls.h */,
 				FEDEDD8E1DCCE86C00511D99 /* UIView+Charls.m */,
+				FED29F741DEF01FA006B5CDC /* UIImage+Charls.h */,
+				FED29F751DEF01FA006B5CDC /* UIImage+Charls.m */,
+				FED29F7E1DEF0D7E006B5CDC /* UIButton+Charls.h */,
+				FED29F7F1DEF0D7E006B5CDC /* UIButton+Charls.m */,
+				FE8531B81E1C973E002344E4 /* UIColor+Charls.h */,
+				FE8531B91E1C973E002344E4 /* UIColor+Charls.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -135,6 +168,8 @@
 				FEBB29CE1D7FEEEC00057595 /* AppDelegate.m */,
 				FEBB29D01D7FEEEC00057595 /* ViewController.h */,
 				FEBB29D11D7FEEEC00057595 /* ViewController.m */,
+				FED29F811DEF2B48006B5CDC /* VerifyUtilities.h */,
+				FED29F821DEF2B48006B5CDC /* VerifyUtilities.m */,
 				FEBB29D31D7FEEEC00057595 /* Main.storyboard */,
 				FEBB29D61D7FEEEC00057595 /* Assets.xcassets */,
 				FEBB29D81D7FEEEC00057595 /* LaunchScreen.storyboard */,
@@ -186,7 +221,7 @@
 		FEBB29BF1D7FEEEC00057595 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Charls;
 				TargetAttributes = {
 					FEBB29C61D7FEEEC00057595 = {
@@ -246,16 +281,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE8531BA1E1C973E002344E4 /* UIColor+Charls.m in Sources */,
+				FE064B1D1E1D2D9300651FB7 /* NSUserDefaults+Charls.m in Sources */,
 				FEBB29D21D7FEEEC00057595 /* ViewController.m in Sources */,
 				FEDEDD8F1DCCE86C00511D99 /* UIView+Charls.m in Sources */,
+				FED29F7A1DEF061B006B5CDC /* NSNumber+Charls.m in Sources */,
 				FEB2B4F91D8253BE003008B2 /* NSDate+Charls.m in Sources */,
 				FEBB29CF1D7FEEEC00057595 /* AppDelegate.m in Sources */,
+				FED29F831DEF2B48006B5CDC /* VerifyUtilities.m in Sources */,
 				FEBB29CC1D7FEEEC00057595 /* main.m in Sources */,
 				FEB2B4F61D824E87003008B2 /* NSObject+Charls.m in Sources */,
 				FEB2B4F21D824988003008B2 /* NSTimer+Charls.m in Sources */,
+				FED29F7D1DEF06B7006B5CDC /* NSString+Charls.m in Sources */,
 				FEB2B4FC1D828E7E003008B2 /* NSDateFormatter+Charls.m in Sources */,
 				FEBADAD21D810E0E00BFEE3B /* NSArray+Charls.m in Sources */,
 				FEBADAD91D81604000BFEE3B /* NSDictionary+Charls.m in Sources */,
+				FED29F801DEF0D7E006B5CDC /* UIButton+Charls.m in Sources */,
+				FED29F761DEF01FA006B5CDC /* UIImage+Charls.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,8 +337,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -339,8 +383,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

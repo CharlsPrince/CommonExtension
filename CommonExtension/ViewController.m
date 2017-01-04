@@ -10,6 +10,11 @@
 #import <Foundation/Foundation.h>
 
 #import "CharlsCategories.h"
+#import "VerifyUtilities.h"
+
+#import "UIColor+Charls.h"
+
+
 
 @interface Tag : NSObject
 
@@ -104,6 +109,30 @@
     [btn setTitle:@"touch" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
+    
+    
+    NSLog(@"______%d",[VerifyUtilities isMobile:@"13631130332"]);
+    NSLog(@"%d",[VerifyUtilities isEmail:@"961629701@qq.com"]);
+    NSLog(@"%d",[VerifyUtilities isPureInt:@"123"]);
+    NSLog(@"%d",[VerifyUtilities isPureFloat:@"123.123"]);
+    NSLog(@"%d",[VerifyUtilities isChinese:@"中"]);
+    NSLog(@"%d",[VerifyUtilities isURL:@"http://www.baodu.com"]);
+    NSLog(@"%d",[VerifyUtilities verifyIDCardNumber:@"440981199301053238"]);
+    
+    
+    UIColor *color = [UIColor randomColor];
+    //[UIColor colorWithHexString:@"0xfdbdee"];
+    
+//    UIColor *color2 = UIColor_RGB(100, 122, 255);
+    btn.backgroundColor = color;
+    
+    
+    
+    NSLog(@"randomColors->>>%@",[UIColor randomColorsWithCount:0]);
+    NSLog(@"hex->>%@",[UIColor hexStringFromColor:[UIColor randomColor]]);
+    NSLog(@"lightSalmon->>%@",[UIColor lightSalmonColor]);
+    
+    
     
 }
 

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 #pragma mark - NSDictionary
 @interface NSDictionary (Charls)
 
@@ -94,5 +96,5 @@
 
 @end
 
-
+NS_ASSUME_NONNULL_END
 

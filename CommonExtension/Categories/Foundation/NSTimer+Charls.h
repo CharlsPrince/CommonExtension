@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef void (^TimerHandler)();
 
 #pragma mark - NSTimer
@@ -49,3 +51,5 @@ typedef void (^TimerHandler)();
 + (nonnull instancetype)timerWithTimeInterval:(NSTimeInterval)interval block:(nonnull TimerHandler)block repeats:(BOOL)repeats;
 
 @end
+
+NS_ASSUME_NONNULL_END

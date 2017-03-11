@@ -16,6 +16,8 @@
 
 
 
+
+
 @interface Tag : NSObject
 
 @property (nonatomic, copy) NSString *name;
@@ -131,7 +133,6 @@
     NSLog(@"randomColors->>>%@",[UIColor randomColorsWithCount:0]);
     NSLog(@"hex->>%@",[UIColor hexStringFromColor:[UIColor randomColor]]);
     NSLog(@"lightSalmon->>%@",[UIColor lightSalmonColor]);
-    
     
     
 }

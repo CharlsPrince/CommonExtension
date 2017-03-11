@@ -11,53 +11,170 @@
 NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - NSArray
-@interface NSArray (Charls)
+@interface NSArray<ObjectType> (Charls)
 @end
 
 #pragma mark - 序列化
-@interface NSArray (PropertyListSerialization)
+@interface NSArray<ObjectType> (PropertyListSerialization)
+
+/// ================================================================
+///  @name: - plistData
+/// ================================================================
 
 /**
- *  @brief 通过plist 数据实例化 NSArray
- *
- *  @param plistData 属性列表数据
- *
- *  @return NSArray or nil
+ 将数组转为 plist 数据
+ 
+ @discussion NSJSONWritingOptions 为 kNilOptions
+ @return NSData or nil
  */
-+ (nullable instancetype)arrayWithPlistData:(nonnull NSData *)plistData;
+- (nullable NSData *)toPlistData;
 
 /**
- *  @brief 通过 plist 字符串实例化 NSArray
- *
- *  @param plistString 属性列表字符串
- *
- *  @return NSArray or nil
+ 将数组转为 plist 数据
+ 
+ @discussion NSJSONWritingOptions 为 kNilOptions
+ @param error 如果转换失败将会传递错误给该参数
+ @return NSData or nil
  */
-+ (nullable instancetype)arrayWithPlistString:(nonnull NSString *)plistString;
+- (nullable NSData *)toPlistDataWithError:(NSError **)error;
 
 /**
- *  @brief 将数组转化为 plist data
+ 通过 plist 数据实例化数组
+
+ @param plistData plist 数据
+ @return NSArray or nil
  */
-- (nullable NSData *)plistData;
++ (nullable NSArray<ObjectType> *)arrayWithPlistData:(NSData *)plistData;
 
 /**
- *  @brief 将数组转化成 plist string (XML格式)
- *
- *  @return NSString or nil
+ 通过 plist 数据实例化数组
+
+ @param plistData plist 数据
+ @param error 如果转换失败将会传递错误给该参数
+ @return NSArray or nil
  */
-- (nullable NSString *)plistString;
++ (nullable NSArray<ObjectType> *)arrayWithPlistData:(NSData *)plistData error:(NSError **)error;
+
+
+/// ================================================================
+///  @name: - plistString
+/// ================================================================
 
 /**
- *  @brief 将JSON数组转化成 json string
- *
- *  @return NSString or nil
+ 将数组转为 plist 字符串
+
+ @return NSString or nil
  */
-- (nullable NSString *)jsonStringEncoded;
+- (nullable NSString *)toPlistString;
+
+/**
+ 将数组转为 plist 字符串
+
+ @param error 如果转换失败将传递错误给改参数
+ @return NSString or nil
+ */
+- (nullable NSString *)toPlistStringWithError:(NSError **)error;
+
+/**
+ 将数组转为 plist 字符串
+
+ @param format 转换格式
+ @param error 如果转换失败将传递错误给改参数
+ @return NSString or nil
+ */
+- (nullable NSString *)toPlistStringWithFormat:(NSPropertyListFormat)format error:(NSError **)error;
+
+/**
+ 通过 plist 字符串实例化数组
+
+ @param plistString plist 字符串
+ @return NSArray or nil
+ */
++ (nullable NSArray<ObjectType> *)arrayWithPlistString:(nonnull NSString *)plistString;
+
+
+/// ================================================================
+///  @name: - JSONData
+/// ================================================================
+
+/**
+ 将数组转为 JSON 数据
+ 
+ @discussion NSJSONWritingOptions 为 kNilOptions
+ @return NSData or nil
+ */
+- (nullable NSData *)toJSONData;
+
+/**
+ 将数组转为 JSON 数据
+
+ @param opt JSON 转换选项
+ @param error 如果转换失败将传递错误给该参数
+ @return NSData or nil
+ */
+- (nullable NSData *)toJSONDataWithOptions:(NSJSONWritingOptions)opt error:(NSError **)error;
+
+/**
+ 将 JSON 数据转为不可变数组
+
+ @param data JSON 数据
+ @return NSArray or nil
+ */
++ (nullable NSArray<ObjectType> *)arrayWithJSONData:(NSData *)data;
+
+/**
+ 将 JSON 数据转为不可变数组
+
+ @param data JSON 数据
+ @param error 如果转换失败将传递错误给该参数
+ @return NSArray or nil
+ */
++ (nullable NSArray<ObjectType> *)arrayWithJSONData:(NSData *)data error:(NSError **)error;
+
+
+/// ================================================================
+///  @name: - JSONString
+/// ================================================================
+
+/**
+ 将数组转为 JSON 字符串
+
+ @return NSString or nil
+ */
+- (nullable NSString *)toJSONString;
+
+/**
+ 将数组转为 JSON 字符串
+
+ @param error 如果转换失败将传递错误给该参数
+ @return NSString or nil
+ */
+- (nullable NSString *)toJSONStringWithError:(NSError **)error;
+
+/**
+ 通过 JSON 字符串实例化数组
+
+ @param string JSON 字符串
+ @return NSArray or nil
+ */
++ (nullable NSArray<ObjectType> *)arrayWithJSONString:(NSString *)string;
+
+
+/**
+ 通过 JSON 字符串实例化数组
+
+ @param string JSON 字符串
+ @param error 如果转换失败将传递错误给该参数
+ @return NSArray or nil
+ */
++ (nullable NSArray<ObjectType> *)arrayWithJSONString:(NSString *)string error:(NSError **)error;
 
 @end
 
-@interface NSArray (Element)
 
+#pragma mark - 元素
+
+@interface NSArray<ObjectType> (Element)
 
 /**
  随机元素
@@ -66,12 +183,22 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (nullable id)randomObject;
 
+/**
+ 根据索引获取数组元素
+
+ @param index 索引
+ @return id or nil
+ */
+- (nullable id)objectOrNilAtIndex:(NSUInteger)index;
+
 @end
 
 
 #pragma mark - NSMutableArray
+
 #pragma mark - 元素
-@interface NSMutableArray (Element)
+
+@interface NSMutableArray<ObjectType> (Element)
 
 /**
  *  @brief 弹出数组首元素
@@ -105,7 +232,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @brief 打乱数组元素
  */
 - (void)shuffle;
-
 
 /**
  安全添加元素

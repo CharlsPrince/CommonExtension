@@ -15,49 +15,102 @@
 #pragma mark - 序列化
 @implementation NSArray (PropertyListSerialization)
 
-// 通过 plist 数据实例化 NSArray
-+ (nullable instancetype)arrayWithPlistData:(NSData *)plistData {
-    if (plistData == nil || plistData.length == 0) return nil;
-    NSError *error;
-    NSArray *array = [NSPropertyListSerialization propertyListWithData:plistData options:NSPropertyListImmutable format:nil error:&error];
-//    ErrorLog(@"plist数据转Array失败", error)
-    return ([array isKindOfClass:[NSArray class]]) ? array : nil;
-}
-
-// 通过 plist 字符串实例化 NSArray
-+ (nullable instancetype)arrayWithPlistString:(NSString *)plistString {
-    if (plistString == nil || plistString.length == 0) return nil;
-    NSData* data = [plistString dataUsingEncoding:NSUTF8StringEncoding];
-    return [self arrayWithPlistData:data];
-}
-
 // 将数组转为 plist data
-- (nullable NSData *)plistData {
-    NSError *error;
-    NSData *data = [NSPropertyListSerialization dataWithPropertyList:self format:NSPropertyListBinaryFormat_v1_0 options:kNilOptions error:&error];
-//    ErrorLog(@"Array转plist data失败", error)
+- (NSData *)toPlistData {
+    return [self toPlistDataWithError:NULL];
+}
+
+- (NSData *)toPlistDataWithError:(NSError * _Nullable __autoreleasing *)error {
+    NSData *data = [NSPropertyListSerialization dataWithPropertyList:self format:NSPropertyListBinaryFormat_v1_0 options:kNilOptions error:error];
     return data;
 }
 
++ (NSArray *)arrayWithPlistData:(NSData *)plistData {
+    return [NSArray arrayWithPlistData:plistData error:NULL];
+}
+
+// 通过 plist 数据实例化 NSArray
++ (NSArray *)arrayWithPlistData:(NSData *)plistData error:(NSError * _Nullable __autoreleasing * _Nullable)error{
+    if (plistData == nil || plistData.length == 0) return nil;
+    NSArray *array = [NSPropertyListSerialization propertyListWithData:plistData options:NSPropertyListImmutable format:nil error:error];
+    return ([array isKindOfClass:[NSArray class]]) ? array : nil;
+}
+
+
+
+
 // 将数组转为 plist string（XML格式）
-- (nullable NSString *)plistString {
-    NSError *error;
-    NSData *xmlData = [NSPropertyListSerialization dataWithPropertyList:self format:NSPropertyListXMLFormat_v1_0 options:kNilOptions error:&error];
-//    ErrorLog(@"Array转plist string失败", error)
+- (nullable NSString *)toPlistString {
+    return [self toPlistStringWithError:NULL];
+}
+
+- (NSString *)toPlistStringWithError:(NSError * _Nullable __autoreleasing *)error {
+    return [self toPlistStringWithFormat:NSPropertyListXMLFormat_v1_0 error:error];
+}
+
+- (NSString *)toPlistStringWithFormat:(NSPropertyListFormat)format error:(NSError * _Nullable __autoreleasing *)error {
+    NSData *xmlData = [NSPropertyListSerialization
+                       dataWithPropertyList:self
+                       format:NSPropertyListXMLFormat_v1_0 options:kNilOptions
+                       error:error];
     return ((xmlData != nil) ? [[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding] : nil);
 }
 
+// 通过 plist 字符串实例化 NSArray
++ (NSArray *)arrayWithPlistString:(NSString *)plistString {
+    if (plistString == nil || plistString.length == 0) return nil;
+    NSData* data = [plistString dataUsingEncoding:NSUTF8StringEncoding];
+    return [self arrayWithPlistData:data error:NULL];
+}
+
+
+
+- (NSData *)toJSONData {
+    return [self toJSONDataWithOptions:NSJSONWritingPrettyPrinted error:NULL];
+}
+
+- (NSData *)toJSONDataWithOptions:(NSJSONWritingOptions)opt error:(NSError * _Nullable __autoreleasing *)error {
+    return [NSJSONSerialization dataWithJSONObject:self options:opt error:error];
+}
+
++ (NSArray *)arrayWithJSONData:(NSData *)data {
+    return [NSArray arrayWithJSONData:data error:NULL];
+}
+
++ (NSArray *)arrayWithJSONData:(NSData *)data error:(NSError * _Nullable __autoreleasing *)error {
+    NSArray *array = [NSJSONSerialization JSONObjectWithData:data
+                                                     options:NSJSONReadingAllowFragments
+                                                       error:error];
+    return ([array isKindOfClass:[NSArray class]] ? array : nil);
+}
+
+
+
+
 // 将JSON数组转为 json string
-- (nullable NSString *)jsonStringEncoded {
+- (nullable NSString *)toJSONString {
+    return [self toJSONStringWithError:NULL];
+}
+
+- (NSString *)toJSONStringWithError:(NSError * _Nullable __autoreleasing *)error {
     if ([NSJSONSerialization isValidJSONObject:self]) {
-        NSError *error;
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:&error];
-//        ErrorLog(@"JSON Array转JSON String失败", error)
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:error];
         NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         return json;
     }
     return nil;
 }
+
++ (NSArray *)arrayWithJSONString:(NSString *)string {
+    return [NSArray arrayWithJSONString:string error:NULL];
+}
+
++ (NSArray *)arrayWithJSONString:(NSString *)string error:(NSError * _Nullable __autoreleasing *)error {
+    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
+    if (data == nil) return nil;
+    return [NSArray arrayWithJSONData:data error:error];
+}
+
 
 @end
 
@@ -69,6 +122,10 @@
         return nil;
     }
     return self[arc4random() % self.count];
+}
+
+- (id)objectOrNilAtIndex:(NSUInteger)index {
+    return index < self.count ? self[index] : nil;
 }
 
 @end
@@ -100,8 +157,6 @@
     id obj = nil;
     if (self.count > 0) {
         if (index >= self.count || index < 0) {
-            NSError *error = [NSError errorWithDomain:@"" code:0 userInfo:@{@"reason":@"The index value is not greater than or equal to the number of array"}];
-//            ErrorLog(@"索引值不能大于或等于数组数量", error)
             return obj;
         } else {
             obj = [self objectAtIndex:index];

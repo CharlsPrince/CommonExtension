@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSUserDefaults (Charls)
 
+#pragma mark - 存
+
 + (void)setObject:(nullable id)value forKey:(NSString *)defaultName;
 
 + (void)setInteger:(NSInteger)value forKey:(NSString *)defaultName;
@@ -24,7 +26,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)setURL:(nullable NSURL *)url forKey:(NSString *)defaultName;
 
+#pragma mark - 删
+
 + (void)removeObjectForKey:(NSString *)defaultName;
+
+#pragma mark - 取
 
 + (nullable id)objectForKey:(NSString *)defaultName;
 

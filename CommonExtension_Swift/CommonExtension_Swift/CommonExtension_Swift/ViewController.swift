@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         self.view.addSubview(label)
         
         
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -32,7 +32,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (BOOL)hasBlank;
 
-
 /**
  判断字符串是否包含中文
 

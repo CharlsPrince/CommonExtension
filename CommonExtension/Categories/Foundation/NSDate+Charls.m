@@ -280,9 +280,9 @@
     if (self.isToday) {
         NSDateComponents *cmps = [NSDate deltaFromDate:self toDate:[NSDate  date]];
         if (cmps.hour >= 1) {
-            return [NSString stringWithFormat:@"%ld小时前", cmps.hour];
+            return [NSString stringWithFormat:@"%d小时前", (int)cmps.hour];
         } else if (cmps.minute >= 1) {
-            return [NSString stringWithFormat:@"%ld分钟前", cmps.minute];
+            return [NSString stringWithFormat:@"%d分钟前", (int)cmps.minute];
         } else if (cmps.second >= 0) {
             return @"刚刚";
         }

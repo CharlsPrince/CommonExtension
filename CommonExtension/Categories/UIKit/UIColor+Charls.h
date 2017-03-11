@@ -81,7 +81,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (UIColor *)randomColor;
 
-
 /**
  随机色(但R、G、B的值是相同的)
 
@@ -89,14 +88,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (UIColor *)randomSameRGBValueColor;
 
-
 /**
  随机颜色数组(0 ~ 100)
 
  @return 返回随机颜色数组
  */
 + (nullable NSArray<__kindof UIColor *> *)randomColors;
-
 
 /**
  固定数组，随机颜色数组(0 ~ count)
